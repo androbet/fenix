@@ -671,6 +671,7 @@ class BrowserRobot {
 
         fun clickStartMicrophoneButton(interact: SitePermissionsRobot.() -> Unit): SitePermissionsRobot.Transition {
             // Test page used for testing permissions located at https://mozilla-mobile.github.io/testapp/permissions
+            mDevice.waitForIdle(5000)
             microphoneButton.waitForExists(waitingTime)
             microphoneButton.click()
 

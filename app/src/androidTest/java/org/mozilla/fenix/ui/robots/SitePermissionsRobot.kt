@@ -80,9 +80,11 @@ class SitePermissionsRobot {
             if (allow) {
                 allowPagePermissionButton.waitForExists(waitingTime)
                 allowPagePermissionButton.click()
+                allowPagePermissionButton.waitUntilGone(waitingTime)
             } else {
                 denyPagePermissionButton.waitForExists(waitingTime)
                 denyPagePermissionButton.click()
+                denyPagePermissionButton.waitUntilGone(waitingTime)
             }
 
             BrowserRobot().interact()
