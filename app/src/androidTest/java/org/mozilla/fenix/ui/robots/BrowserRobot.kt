@@ -50,6 +50,8 @@ import org.mozilla.fenix.helpers.ext.waitNotNull
 class BrowserRobot {
     private lateinit var sessionLoadedIdlingResource: SessionLoadedIdlingResource
 
+    fun waitForPageToLoad() = progressBar.waitUntilGone(waitingTime)
+
     fun verifyCurrentPrivateSession(context: Context) {
         val selectedTab = context.components.core.store.state.selectedTab
         assertTrue("Current session is private", selectedTab?.content?.private ?: false)
@@ -671,7 +673,6 @@ class BrowserRobot {
 
         fun clickStartMicrophoneButton(interact: SitePermissionsRobot.() -> Unit): SitePermissionsRobot.Transition {
             // Test page used for testing permissions located at https://mozilla-mobile.github.io/testapp/permissions
-            mDevice.waitForIdle(5000)
             microphoneButton.waitForExists(waitingTime)
             microphoneButton.click()
 
@@ -738,6 +739,11 @@ private fun mediaPlayerPlayButton() =
         UiSelector()
             .className("android.widget.Button")
             .text("Play")
+    )
+
+private var progressBar =
+    mDevice.findObject(
+        UiSelector().resourceId("$packageName:id/mozac_browser_toolbar_progress")
     )
 
 // Permissions test page elements & prompts

@@ -34,6 +34,7 @@ class SitePermissionsTest {
     fun microphonePermissionChoiceOnEachRequestTest() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(testPage.toUri()) {
+            waitForPageToLoad()
         }.clickStartMicrophoneButton {
             clickAppPermissionButton(true)
             verifyMicrophonePermissionPrompt(testPageSubstring)
@@ -50,6 +51,7 @@ class SitePermissionsTest {
     fun rememberBlockMicrophonePermissionChoiceTest() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(testPage.toUri()) {
+            waitForPageToLoad()
         }.clickStartMicrophoneButton {
             clickAppPermissionButton(true)
             verifyMicrophonePermissionPrompt(testPageSubstring)
@@ -58,6 +60,7 @@ class SitePermissionsTest {
             verifyPageContent("Microphone not allowed")
         }.openThreeDotMenu {
         }.refreshPage {
+            waitForPageToLoad()
         }.clickStartMicrophoneButton { }
         browserScreen {
             verifyPageContent("Microphone not allowed")
@@ -69,6 +72,7 @@ class SitePermissionsTest {
     fun rememberAllowMicrophonePermissionChoiceTest() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(testPage.toUri()) {
+            waitForPageToLoad()
         }.clickStartMicrophoneButton {
             clickAppPermissionButton(true)
             verifyMicrophonePermissionPrompt(testPageSubstring)
@@ -77,6 +81,7 @@ class SitePermissionsTest {
             verifyPageContent("Microphone allowed")
         }.openThreeDotMenu {
         }.refreshPage {
+            waitForPageToLoad()
         }.clickStartMicrophoneButton { }
         browserScreen {
             verifyPageContent("Microphone allowed")
@@ -101,6 +106,7 @@ class SitePermissionsTest {
     fun cameraPermissionChoiceOnEachRequestTest() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(testPage.toUri()) {
+            waitForPageToLoad()
         }.clickStartCameraButton {
             clickAppPermissionButton(true)
             verifyCameraPermissionPrompt(testPageSubstring)
@@ -117,6 +123,7 @@ class SitePermissionsTest {
     fun rememberBlockCameraPermissionChoiceTest() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(testPage.toUri()) {
+            waitForPageToLoad()
         }.clickStartCameraButton {
             clickAppPermissionButton(true)
             verifyCameraPermissionPrompt(testPageSubstring)
@@ -125,6 +132,7 @@ class SitePermissionsTest {
             verifyPageContent("Camera not allowed")
         }.openThreeDotMenu {
         }.refreshPage {
+            waitForPageToLoad()
         }.clickStartCameraButton { }
         browserScreen {
             verifyPageContent("Camera not allowed")
@@ -136,6 +144,7 @@ class SitePermissionsTest {
     fun rememberAllowCameraPermissionChoiceTest() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(testPage.toUri()) {
+            waitForPageToLoad()
         }.clickStartCameraButton {
             clickAppPermissionButton(true)
             verifyCameraPermissionPrompt(testPageSubstring)
@@ -144,6 +153,7 @@ class SitePermissionsTest {
             verifyPageContent("Camera allowed")
         }.openThreeDotMenu {
         }.refreshPage {
+            waitForPageToLoad()
         }.clickStartCameraButton { }
         browserScreen {
             verifyPageContent("Camera allowed")
@@ -173,6 +183,7 @@ class SitePermissionsTest {
             verifyPageContent("Notifications not allowed")
         }.openThreeDotMenu {
         }.refreshPage {
+            waitForPageToLoad()
         }.clickOpenNotificationButton {
             verifyNotificationsPermissionPrompt(testPageSubstring, true)
         }
